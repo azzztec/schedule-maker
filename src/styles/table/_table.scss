@@ -1,0 +1,50 @@
+// $main-cells: #AFCDE7;
+// $input-cells: #D8E6F3;
+$main-cells: #252526;
+$input-cells: #3c3c3c;
+
+.table {
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+
+    &__cell {
+        padding: 0;
+        width: 100px;
+        border: 1px solid #ffffff;
+        text-align: center;
+        background-color: $input-cells;
+
+    }
+
+    &__row>&__cell:first-child {
+        background-color: $main-cells;
+    }
+
+    &__row:first-child>&__cell {
+        height: 50px;
+        background-color: $main-cells;
+    }
+
+    &__input-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__input-surname {
+        padding-bottom: 5px;
+        border: none;
+        text-align: center;
+        transition: box-shadow 0.3s linear;
+        border-radius: 10px;
+        background-color: transparent;
+        &:focus {
+            // box-shadow: inset 0px -20px 10px -20px #36BBCE;
+            box-shadow: 200px 0 0 0 rgba(0,0,0,.3) inset;
+        }
+    }
+
+}
+

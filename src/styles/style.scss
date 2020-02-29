@@ -1,0 +1,24 @@
+@import '~normalize.css';
+@import './table/_table.scss';
+@import './header/_header.scss';
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #595959;
+}
+
+*, :before, :after {
+    box-sizing: inherit;
+}
+
+input, button {
+    outline: none;
+}
+
+.main {
+    width: 70%;
+    margin:0 auto;
+}
