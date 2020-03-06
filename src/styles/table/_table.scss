@@ -1,10 +1,8 @@
-// $main-cells: #AFCDE7;
-// $input-cells: #D8E6F3;
 $main-cells: #252526;
 $input-cells: #3c3c3c;
 
 .table {
-    color: #ffffff;
+    color: rgb(209,209,217);
     width: 100%;
     border: none;
     border-collapse: collapse;
@@ -27,7 +25,7 @@ $input-cells: #3c3c3c;
         background-color: $main-cells;
     }
 
-    &__input-cell {
+    &__input-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -40,11 +38,37 @@ $input-cells: #3c3c3c;
         transition: box-shadow 0.3s linear;
         border-radius: 10px;
         background-color: transparent;
+        color: rgb(209,209,217);
+
         &:focus {
-            // box-shadow: inset 0px -20px 10px -20px #36BBCE;
             box-shadow: 200px 0 0 0 rgba(0,0,0,.3) inset;
         }
     }
 
+    &__input-item {
+        position: relative;
+    }
+
+    &__input-select {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        text-align: left;
+        background-color: #ffffff;
+        color: #000000;
+
+        &.active-panel {
+            display: block;
+        }
+    }
+
+    &__input-option {
+        &:hover {
+            background-color: blue;
+        }
+    }
 }
 

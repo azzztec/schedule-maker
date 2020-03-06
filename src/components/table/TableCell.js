@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './input/Input';
 
 class TableCell extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class TableCell extends React.Component {
                     : 
                         this.props.type == 'data' ? <span table='table__date-cell'>01.03</span> 
                         : 
-                            this.props.type == 'car' ? <span className='table__number-cell'>{this.props.number}</span> : <div className='table__input-cell'><input className='table__input-surname' placeholder='_____' /><input className='table__input-surname' placeholder='_____' /></div>
+                            this.props.type == 'car' ? <span className='table__number-cell'>{this.props.number}</span> : <Input />
                 }
             </td>
         )

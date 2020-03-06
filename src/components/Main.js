@@ -1,6 +1,9 @@
 import React from 'react';
 import Table from './table/Table';
 import Header from './header/Header';
+import {closeInputPanels} from './commonMethods/closeInputPanel'
+
+export const DriversContext = React.createContext();
 
 class Main extends React.Component {
     constructor(props) {
@@ -72,11 +75,16 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div className='main'>
-                <Header drivers={this.state.drivers} deleteDriver={this.deleteDriver} addDriver={this.addDriver} cars={this.state.cars} deleteCar={this.deleteCar} addCar={this.addCar}/>
-                <Table cars={this.state.cars} rowsAmount={this.state.rowsAmount}/>
-            </div>
+            <DriversContext.Provider value={this.state.drivers}>
+                <div className='main'>
+                    <Header drivers={this.state.drivers} deleteDriver={this.deleteDriver} addDriver={this.addDriver} cars={this.state.cars} deleteCar={this.deleteCar} addCar={this.addCar}/>
+                    <Table cars={this.state.cars} rowsAmount={this.state.rowsAmount}/>
+                </div>
+            </DriversContext.Provider>
         )
     }
 }
+
+document.addEventListener('click', closeInputPanels);
+
 export default Main;

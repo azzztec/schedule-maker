@@ -1,8 +1,10 @@
 @import './buttons';
+@import './panel/inputField';
 
 .header {
 
     &__controls {
         display: flex;
+        margin-bottom: 20%;
     }
 }

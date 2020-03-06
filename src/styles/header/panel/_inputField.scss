@@ -1,0 +1,79 @@
+$iconsColor: #B72E3E;
+
+.panel {
+    display: none;
+
+    &.active-panel {
+        display: block;
+    }
+}
+
+.input-field {
+    position: relative;
+
+    &__number,
+    &__make,
+    &__surname {
+        max-width: 82%;
+        border: none;
+
+    }
+
+    &__label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: rgb(209,209,217);
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &:nth-child(2n) {
+        .input-field__btns {
+            justify-content: flex-end;
+        }
+    }
+}
+
+.panel {
+    position: absolute;
+    width: 100%;
+    padding: 5%;
+    border: 2px solid #252526;
+    background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+    box-shadow: 18px 13px 10px 10px #252526;
+
+    &__delete-container {
+        color: rgb(209,209,217);
+    }
+
+    &__delete-item {
+        padding-right: 5px;
+    }
+
+    &__delete-container {
+        text-align: center;
+    }
+
+    &__delete-option {
+        display: inline-block;
+        text-align: center;
+        padding: 2%;
+        border-radius: 3px;
+        border: 1px solid #252526;
+        cursor: pointer;
+        margin-bottom: 3px;
+        user-select: none;
+
+        &:hover>.fa-trash-alt,
+        &:hover>.fa-times {
+            color: $iconsColor;
+        }
+
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+    }
+}

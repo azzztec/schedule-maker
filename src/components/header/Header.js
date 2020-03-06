@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddCarBtn from './AddCar';
-import DeleteCarBtn from './DeteleCar';
-import AddDriverBtn from './AddDriver';
-import DeleteDriverBtn from './DeleteDriver';
+import AddCarBtn from './buttons/AddCar';
+import DeleteCarBtn from './buttons/DeteleCar';
+import AddDriverBtn from './buttons/AddDriver';
+import DeleteDriverBtn from './buttons/DeleteDriver';
 
 class Header extends React.Component {
     constructor(props){
