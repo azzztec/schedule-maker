@@ -20,9 +20,11 @@ class AddDriverBtn extends React.Component {
     }
     
     setNewDriver(event) {
-        this.setState({
-            newDriver: event.target.value
-        })
+        if(new RegExp(/^[а-яА-ЯёЁ]{0,15}$/i).test(event.target.value)){
+            this.setState({
+                newDriver: event.target.value
+            })
+        } else this.input.current.value = ''
     }
 
     addDriver() {
@@ -39,7 +41,7 @@ class AddDriverBtn extends React.Component {
                 <div className='driver-add__add-panel panel' ref={this.panel}>
                     <label className='input-field__label'>
                         Фамилия:
-                        <input className='input-field__surname' onChange={(event) => this.setNewDriver(event)} ref={this.input} />
+                        <input className='input-field__surname' onInput={(event) => this.setNewDriver(event)} ref={this.input} />
                     </label>
                     <div className='input-field__btns'>
                         <button className='driver-add__btn-add btn-add' onClick={this.addDriver}><FontAwesomeIcon icon={faPlus} /></button>

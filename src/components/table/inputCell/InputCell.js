@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Option from './Option';
+import {saveDriversInStorage, getFromStorage} from './saveDrivers';
 
-class Input extends React.Component {
+class InputCell extends React.Component {
     constructor(props) {
         super(props);
 
@@ -10,19 +11,23 @@ class Input extends React.Component {
         this.selectOption = this.selectOption.bind(this);
         this.hideSelect = this.hideSelect.bind(this);
 
+        this.topRef = React.createRef()
+        this.bottomRef = React.createRef()
+
         this.state = {
+            // inputTopValue: (getFromStorage.bind(this)()) && '',
+            // inputBottomValue: (getFromStorage.bind(this)()) && ''
             inputTopValue: '',
             inputBottomValue: ''
         }
+
     }
 
     showSelect(select) {
-        // const select = this.select.current;
         select.classList.add('active-panel');
     }
 
     hideSelect(select) {
-        // const select = this.select.current;
         select.classList.remove('active-panel');
     }
 
@@ -34,6 +39,7 @@ class Input extends React.Component {
                 this.setState({
                     inputTopValue: currentInputValue
                 })
+
             } else {
                 this.setState({
                     inputBottomValue: currentInputValue
@@ -42,7 +48,9 @@ class Input extends React.Component {
         } else {
             if(place == 'top'){
                 event.target.value = this.state.inputTopValue;
-            } else event.target.value = this.state.inputBottomValue;
+            } else {
+                event.target.value = this.state.inputBottomValue;
+            }
             return false;
         }
     }
@@ -61,11 +69,14 @@ class Input extends React.Component {
         this.hideSelect(event.target.previousElementSibling);
     }
 
-    // componentDidUpdate() {
-    //     console.log(this.state.inputTopValue)
-    //     console.log(this.state.inputBottomValue)
-    // }
+    componentDidMount() {
+        getFromStorage()
+    }
 
+    componentDidUpdate() {
+        saveDriversInStorage()
+    }
+ 
     render() {
         return (
             <div className='table__input-container'>
@@ -73,17 +84,17 @@ class Input extends React.Component {
                     <div className='table__input-select'>
                         <Option place='top' selectOption={this.selectOption} currentInputValue={this.state.inputTopValue}/>
                     </div>
-                    <input className='table__input-surname' value={this.state.inputTopValue} onChange={(event) => this.inputValidator(event, 'top')} placeholder='_____' data-place='top' />
+                    <input ref={this.topRef} className='table__input-surname' value={this.state.inputTopValue} onChange={(event) => this.inputValidator(event, 'top')} placeholder='_____' data-place='top' data-surname={this.state.inputTopValue} />
                 </div>
                 <div className='table__input-item'>
                     <div className='table__input-select'>
                         <Option place='bottom' selectOption={this.selectOption} currentInputValue={this.state.inputBottomValue}/>
                     </div>
-                    <input className='table__input-surname' value={this.state.inputBottomValue} onChange={(event) => this.inputValidator(event, 'bottom')} placeholder='_____' data-place='bottom'/>
+                    <input ref={this.bottomRef} className='table__input-surname' value={this.state.inputBottomValue} onChange={(event) => this.inputValidator(event, 'bottom')} placeholder='_____' data-place='bottom' data-surname={this.state.inputBottomValue} />
                 </div>
             </div>
         )
     }
 }
 
-export default Input
+export default InputCell

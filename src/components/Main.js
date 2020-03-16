@@ -2,6 +2,7 @@ import React from 'react';
 import Table from './table/Table';
 import Header from './header/Header';
 import {closeInputPanels} from './commonMethods/closeInputPanel'
+import {saveInStorage, getFromStorage} from './saveInStorage'
 
 export const DriversContext = React.createContext();
 
@@ -15,24 +16,8 @@ class Main extends React.Component {
         this.deleteDriver = this.deleteDriver.bind(this);
 
         this.state = {
-            cars: [   
-                {
-                    make: 'skoda',
-                    number: 5031
-                },
-                {
-                    make: 'vw',
-                    number: 5838
-                },
-                {
-                    make: 'rio',
-                    number: 5031
-                },
-                {
-                    
-                }
-            ],
-            drivers: [],
+            cars: getFromStorage("cars"),
+            drivers: getFromStorage("drivers"),
             rowsAmount: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         };
         this.addCar = this.addCar.bind(this);
@@ -71,6 +56,13 @@ class Main extends React.Component {
         this.setState({
             cars: [...carsCopy]
         })
+    }
+
+    componentDidUpdate() {
+        saveInStorage('cars', JSON.stringify(this.state.cars))
+        saveInStorage("drivers", this.state.drivers);
+        getFromStorage("drivers");
+        getFromStorage("cars");
     }
 
     render() {

@@ -1,0 +1,53 @@
+$fontColor: rgb(209,209,217);
+
+.settings {
+
+    position: relative;
+
+    &__icon {
+        &:hover {
+            color: $fontColor;
+        }
+
+        &.disabled {
+            display: none;
+        }
+    }
+
+    &__panel {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: -623%;
+        width: 200px;
+        padding: 20%;
+        border: 2px solid #252526;
+        background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+
+        &.active {
+            display: block;
+            right: 0;
+        }
+    }
+
+    &__checkbox {
+        margin-right: 3%;
+    }
+
+    &__panel {
+        color: $fontColor;
+    }
+
+    &__checkboxes {
+        display: flex;
+        flex-direction: column;
+
+        .checkbox__container {
+            margin-bottom: 4px;
+
+            &.delete-all {
+                margin-top: 5%;
+            }
+        }
+    }
+}

@@ -70,5 +70,17 @@ $input-cells: #3c3c3c;
             background-color: blue;
         }
     }
+
+    &__input-cell {
+        text-align: center;
+        border: none;
+        background-color: #252526;
+        color: rgb(209,209,217);
+    }
+
+    &__date-cell {
+        display: block;
+    }
+    
 }
 

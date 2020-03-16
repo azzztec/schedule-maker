@@ -16,7 +16,7 @@ class TableRow extends React.Component {
                         })
                     :
                         this.props.cars.map((item, index) => {
-                            return index == 0 ? <TableCell key={index} type='data' /> : <TableCell key={index} type='driver' />
+                            return index == 0 ? <TableCell startDate={this.props.startDate} setStartDate={this.props.setStartDate} index={this.props.index} key={index} type='data' /> : <TableCell cellIndex={index} rowIndex={this.props.rowIndex} key={index} type='driver' />
                         })
 
                 }

@@ -1,7 +1,10 @@
 @import './buttons';
 @import './panel/inputField';
+@import './settings/settings';
 
 .header {
+    display: flex;
+    justify-content: space-between;
 
     &__controls {
         display: flex;
