@@ -1,5 +1,5 @@
 ACTUAL VERSION: 1.1
 
 Initialize: 
-npm init
-npm run start
+1)npm init 
+2)npm run start
