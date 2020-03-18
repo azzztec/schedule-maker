@@ -20,7 +20,7 @@ class Header extends React.Component {
                     <DeleteDriverBtn deleteDriver={this.props.deleteDriver} drivers={this.props.drivers} />
                 </div>
                 <div className='header__settings'>
-                    <Settings />
+                    <Settings drivers={this.props.drivers}/>
                 </div>
             </div>
         )

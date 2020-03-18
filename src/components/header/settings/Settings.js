@@ -1,4 +1,5 @@
 import React from 'react';
+import SettingsSelect from './SettingsSelect'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 
@@ -38,7 +39,8 @@ class Settings extends React.Component {
             if(this.calcelDate) {
                 localStorage.setItem("date", '')
             }
-            if(this.cellDrivers) {
+            if(this.clearTable) {
+                console.log()
                 localStorage.setItem("cellDrivers", '')
             }
         }
@@ -75,6 +77,10 @@ class Settings extends React.Component {
                         </div>
                         <div className='checkbox__container delete-all'>
                             <input onChange={() => {this.clearAll = !this.clearAll}} className='settings__checkbox' type='checkbox' id='clearAll'/><label htmlFor='clearTable'>Очистить все</label>
+                        </div>
+                        <div className='select-container'>
+                            Выделить водителя
+                            <SettingsSelect drivers={this.props.drivers} />
                         </div>
                     </div>
                     <div className='input-field__btns'>

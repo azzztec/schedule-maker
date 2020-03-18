@@ -1,4 +1,4 @@
-let drivers = [];
+let drivers = localStorage.getItem("cellDrivers").split(',');
 
 function addInStorage(drivers) {
     localStorage.setItem("cellDrivers", drivers)
@@ -12,6 +12,8 @@ function getFromStorage() {
 
         inputs.forEach((item, index) => {
             item.value = savedDrivers[index];
+            item.dataset.surname = savedDrivers[index];
+            item.dataset.positionInStorage = index
         })
     }
 
@@ -19,7 +21,6 @@ function getFromStorage() {
 
 function saveDriversInStorage() {
     let inputs = document.querySelectorAll('.table__input-surname');
-    
     if(inputs.length >= 1) {
         inputs.forEach((item, index) => {
             item.dataset.positionInStorage = index

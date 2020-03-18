@@ -15,10 +15,8 @@ class InputCell extends React.Component {
         this.bottomRef = React.createRef()
 
         this.state = {
-            // inputTopValue: (getFromStorage.bind(this)()) && '',
-            // inputBottomValue: (getFromStorage.bind(this)()) && ''
-            inputTopValue: '',
-            inputBottomValue: ''
+            inputTopValue: (getFromStorage.bind(this)()) && '',
+            inputBottomValue: (getFromStorage.bind(this)()) && ''
         }
 
     }
@@ -61,6 +59,7 @@ class InputCell extends React.Component {
             this.setState({
                 inputTopValue: optionValue
             })
+            console.log(this.state.inputTopValue)
         } else {
             this.setState({
                 inputBottomValue: optionValue
