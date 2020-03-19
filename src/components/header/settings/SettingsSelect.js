@@ -4,10 +4,11 @@ class SettingSelect extends React.Component {
     constructor(props) {
         super(props)
 
-        this.selectDriver = this.selectDriver.bind(this)
+        this.selectDriver = this.selectDriver.bind(this);
 
         this.state= {
-            selectedDriver: ''
+            selectedDriver: '',
+            select: false
         }
     }
 
@@ -29,7 +30,7 @@ class SettingSelect extends React.Component {
 
     render() {
         return (
-                <select onChange={this.selectDriver}>
+                <select className='settings-select' onChange={this.selectDriver}>
                     <option className='select-option'>Не выбрано</option>
                     {
                         this.props.drivers.map((driver, index) => {

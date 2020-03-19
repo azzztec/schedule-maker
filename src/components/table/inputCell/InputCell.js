@@ -15,8 +15,8 @@ class InputCell extends React.Component {
         this.bottomRef = React.createRef()
 
         this.state = {
-            inputTopValue: (getFromStorage.bind(this)()) && '',
-            inputBottomValue: (getFromStorage.bind(this)()) && ''
+            inputTopValue: (getFromStorage.bind(this)()),
+            inputBottomValue: (getFromStorage.bind(this)())
         }
 
     }
@@ -45,9 +45,17 @@ class InputCell extends React.Component {
             }
         } else {
             if(place == 'top'){
-                event.target.value = this.state.inputTopValue;
+                if(this.state.inputTopValue === undefined) {
+                    event.target.value = ''
+                } else {
+                    event.target.value = this.state.inputTopValue;
+                }
             } else {
-                event.target.value = this.state.inputBottomValue;
+                if(this.state.inputBottomValue === undefined) {
+                    event.target.value = ''
+                } else {
+                    event.target.value = this.state.inputBottomValue;
+                }
             }
             return false;
         }
