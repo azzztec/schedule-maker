@@ -1,4 +1,4 @@
-ACTUAL VERSION: 1.1
+ACTUAL VERSION: 1.1.1
 
 Initialize: 
 1)npm init 
