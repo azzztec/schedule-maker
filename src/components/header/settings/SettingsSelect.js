@@ -13,19 +13,25 @@ class SettingSelect extends React.Component {
     }
 
     selectDriver(event) {
-        this.setState({
-            selectedDriver: event.target.value
-        })
+        if(event.target.value != 'Не выбрано') {
+            this.setState({
+                selectedDriver: event.target.value
+            })
+        }
     }
 
     componentDidUpdate() {
-        let selectedDrivers = document.querySelectorAll('.table__input-surname.selected')
-        let driverInput = document.querySelectorAll(`.table__input-surname[data-surname='${this.state.selectedDriver}']`);
+        
+        if(this.state.selectedDriver != '') {
+            console.log('selectSettings')
+            let selectedDrivers = document.querySelectorAll('.table__input-surname.selected')
+            let driverInput = document.querySelectorAll(`.table__input-surname[data-surname='${this.state.selectedDriver}']`);
 
-        if(selectedDrivers) {
-            selectedDrivers.forEach(item => item.classList.remove('selected'))
+            if(selectedDrivers) {
+                selectedDrivers.forEach(item => item.classList.remove('selected'))
+            }
+            driverInput.forEach(item => item.classList.add('selected'))
         }
-        driverInput.forEach(item => item.classList.add('selected'))
     }
 
     render() {
