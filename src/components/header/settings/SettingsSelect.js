@@ -13,9 +13,11 @@ class SettingSelect extends React.Component {
     }
 
     selectDriver(event) {
-        this.setState({
-            selectedDriver: event.target.value
-        })
+        if(event.target.value != 'Не выбрано') {
+            this.setState({
+                selectedDriver: event.target.value
+            })
+        }
     }
 
     componentDidUpdate() {
