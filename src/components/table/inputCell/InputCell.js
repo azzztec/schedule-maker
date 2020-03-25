@@ -67,7 +67,6 @@ class InputCell extends React.Component {
             this.setState({
                 inputTopValue: optionValue
             })
-            console.log(this.state.inputTopValue)
         } else {
             this.setState({
                 inputBottomValue: optionValue
