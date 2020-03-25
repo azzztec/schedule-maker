@@ -72,7 +72,8 @@ class InputCell extends React.Component {
                 inputBottomValue: optionValue
             })
         }
-        this.hideSelect(event.target.previousElementSibling);
+        
+        this.hideSelect(event.target.parentNode);
     }
 
     componentDidMount() {
